@@ -1,0 +1,38 @@
+<div>
+    <form (ngSubmit)="submit()" #customerForm="ngForm" class="customer-form" novalidate>
+        <div class="form-group">
+            <label>First Name</label>
+            <input title="first name" type="text" class="form-control" name="firstName" [(ngModel)]="customer.firstName"
+                #firstName="ngModel" required>
+            <div class="alert alert-danger" [hidden]="firstName.pristine || firstName.valid">First Name is required
+            </div>
+        </div>
+        <div class="form-group">
+            <label>Last Name</label>
+            <input title="last name" type="text" class="form-control" name="lastName" [(ngModel)]="customer.lastName"
+                #lastName="ngModel" required>
+            <div class="alert alert-danger" [hidden]="lastName.pristine || lastName.valid">Last Name is required</div>
+        </div>
+        <div class="form-group">
+            <label>Address</label>
+            <input title="address" type="text" class="form-control" name="address" [(ngModel)]="customer.address"
+                #address="ngModel" required>
+            <div class="alert alert-danger" [hidden]="address.pristine || address.valid">Address is required</div>
+        </div>
+        <div class="form-group">
+            <label>City</label>
+            <input title="city" type="text" class="form-control" name="city" [(ngModel)]="customer.city" #city="ngModel"
+                required>
+            <div class="alert alert-danger" [hidden]="city.pristine || city.valid">City is required</div>
+        </div>
+
+        <div *ngIf="customer">
+            <div class="pull-right">
+
+                <button type="submit" class="btn btn-success"
+                    [disabled]="customerForm.pristine || !customerForm.valid">Update</button>
+            </div>
+        </div>
+    </form>
+    <br />
+</div>
