@@ -16,4 +16,5 @@
       </a></li>
   </ul>
 </span>
-<router-outlet></router-outlet>
+    <h1 *ngIf="customer">Selected Customer {{customer.firstName}}</h1>
+    <router-outlet></router-outlet>
